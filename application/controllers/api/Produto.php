@@ -50,17 +50,13 @@ class Produto extends RestController{
         $qtd = $this->input->put("qtd");
         $codfabricante = $this->input->put("codfabricante");
         $codgrupo = $this->input->put("codgrupo");
-        
         $this->ProdutoModel->atualizar($id, $produto, $preco, $qtd, $codfabricante, $codgrupo);
         $resultado["status"]=true;
         $resultado["messagem"]="Dados atualizados com sucesso";
         $this->response($resultado, RestController::HTTP_OK); 
-
-
     }
 
     public function index_delete($id){
-        
         $this->ProdutoModel->excluir($id);
         $resultado["status"]=true;
         $resultado["mensagem"]="Dados excluídos com sucesso";
